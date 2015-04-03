@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hku-u6-6BE">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5F-WP-Kmm">
+                                <rect key="frame" x="16" y="468" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.411322107745553" green="0.77237268925290237" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4B7-qB-Ccp" kind="push" id="AM6-Br-hfd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edq-d7-MBN">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="439-gM-Ru6" kind="push" id="cUN-WF-DFZ"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IqQ-cz-atc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="396"/>
+                                <color key="backgroundColor" red="0.93791514269999998" green="1" blue="0.3173402474" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93791514269999998" green="1" blue="0.3173402474" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="c3A-jh-XQI">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="yKD-xf-udP">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="IqQ-cz-atc" id="TgR-u8-gHW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446" y="-342"/>
+        </scene>
+        <!--NumSetting-->
+        <scene sceneID="PoZ-LS-dGV">
+            <objects>
+                <viewController id="439-gM-Ru6" customClass="NumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jW2-fh-o6b"/>
+                        <viewControllerLayoutGuide type="bottom" id="YSe-jl-VPO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Iz3-Nn-TdE" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVn-Tw-ku0">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wtm-db-c9c" kind="push" id="Jun-Jd-PoG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="抽奖总人数" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fP-hq-mIz">
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93791514269999998" green="1" blue="0.3173402474" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="backgroundTaped:" destination="ktg-fQ-AER" eventType="touchDown" id="6kP-Ts-7Nz"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="NumSetting" id="thF-NV-j2h"/>
+                    <connections>
+                        <outlet property="numOfGamblerTextField" destination="4fP-hq-mIz" id="FV4-AN-ms1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktg-fQ-AER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-447" y="290"/>
+        </scene>
+        <!--Drawing-->
+        <scene sceneID="Vkl-NS-scI">
+            <objects>
+                <viewController id="wtm-db-c9c" customClass="DrawingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KUq-bj-9lM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eln-bw-0xC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O6N-xz-Onh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeU-3u-HXy">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Touch me !">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93791514269999998" green="1" blue="0.3173402474" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Drawing" id="VLK-RM-O51"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFB-XA-9MO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86" y="290"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="frp-Tf-Zco">
+            <objects>
+                <viewController id="4B7-qB-Ccp" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="81f-L6-mkJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="yJN-E5-gQc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l0P-xP-gZd" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="奖项名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QI5-7l-0FO">
+                                <rect key="frame" x="16" y="171" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="awardTextField:" destination="4B7-qB-Ccp" eventType="editingDidEnd" id="F1a-hz-zPl"/>
+                                    <action selector="awardTextField:" destination="5FB-TW-IdZ" eventType="editingDidEndOnExit" id="WEV-Aa-mPH"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="奖品名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Giw-86-6Fx">
+                                <rect key="frame" x="16" y="227" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="prizeTextField:" destination="4B7-qB-Ccp" eventType="editingDidEnd" id="pti-3M-h7k"/>
+                                    <action selector="prizeTextField:" destination="5FB-TW-IdZ" eventType="editingDidEndOnExit" id="w8R-qX-vvZ"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="获奖人数" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-u9-Khz">
+                                <rect key="frame" x="16" y="284" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzo-tg-JcM">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="4B7-qB-Ccp" eventType="touchUpInside" id="tQa-iw-dnA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93791514269999998" green="1" blue="0.3173402474" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="5FB-TW-IdZ" eventType="touchDown" id="paD-1D-eQh"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setting" id="Bfr-Gm-793"/>
+                    <connections>
+                        <outlet property="awardTextField" destination="QI5-7l-0FO" id="Kxg-QV-wha"/>
+                        <outlet property="numOfPrizeTextField" destination="AZt-u9-Khz" id="cjr-0c-IcX"/>
+                        <outlet property="prizeTextField" destination="Giw-86-6Fx" id="wAc-Jx-PK9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5FB-TW-IdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86" y="-342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QsK-cg-XtR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hku-u6-6BE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="epy-5h-82s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="SVF-hA-wzE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUo-eZ-ZlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-820" y="-342"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
