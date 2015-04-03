@@ -134,6 +134,7 @@
     [delete removeObjectForKey:@"level"];
     [delete synchronize];
     [self.myTableView reloadData];
+    NSLog(@"add,test");
 }
 
 //Fir 3 Apr
