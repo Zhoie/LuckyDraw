@@ -81,18 +81,18 @@ static unsigned long numCell;//Cell在数组中的正确位置
 
 - (IBAction)saveBtnAction:(id)sender {
     
-    NSArray *tempArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
-    NSMutableArray *mutableArray = [tempArray mutableCopy];
-    NSString *textstring = [NSString stringWithFormat:@"奖项：%@  奖品：%@  奖品个数：%@",self.levelTextField.text,self.prizeTextField.text, self.numTextField.text];
-    ViewController *viewctrl = [[ViewController alloc]init];
-    [mutableArray removeObjectAtIndex:self.index];
-    [mutableArray insertObject:textstring atIndex:0];
-    [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"level"];
-    viewctrl.levelArray = mutableArray;
-    
-//    [self.levelTextField resignFirstResponder];
-    UIAlertView *SaveBtnAlert = [[UIAlertView alloc] initWithTitle:nil message:@"修改数据成功" delegate:nil cancelButtonTitle:@"朕知道了" otherButtonTitles:nil, nil];
-    [SaveBtnAlert show];
+//    NSArray *tempArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
+//    NSMutableArray *mutableArray = [tempArray mutableCopy];
+//    NSString *textstring = [NSString stringWithFormat:@"奖项：%@  奖品：%@  奖品个数：%@",self.levelTextField.text,self.prizeTextField.text, self.numTextField.text];
+//    ViewController *viewctrl = [[ViewController alloc]init];
+//    [mutableArray removeObjectAtIndex:self.index];
+//    [mutableArray insertObject:textstring atIndex:0];
+//    [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"level"];
+//    viewctrl.levelArray = mutableArray;
+//    
+////    [self.levelTextField resignFirstResponder];
+//    UIAlertView *SaveBtnAlert = [[UIAlertView alloc] initWithTitle:nil message:@"修改数据成功" delegate:nil cancelButtonTitle:@"朕知道了" otherButtonTitles:nil, nil];
+//    [SaveBtnAlert show];
 }
 
 

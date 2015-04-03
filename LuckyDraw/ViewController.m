@@ -22,7 +22,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.levelArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
+    
+   // self.levelArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
     [self.myTableView reloadData];
 }
 
@@ -75,11 +76,23 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
+    
+    //  NSDictionary *processDelDicts = [[NSDictionary alloc]init];
+    // NSDictionary *prizeInfoDelDicts = [[NSDictionary alloc]init];
+
+    
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.levelArray removeObjectAtIndex:indexPath.row];
-        
+        //[self.levelArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        NSLog(@"第%ld被删除", indexPath.row);
+        
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // 
     }
@@ -127,17 +140,19 @@
 //删除键clear－－清空数组，并删除保存在本地的数据
 - (IBAction)clearBtnAciton:(id)sender {
     
-    for (int i; i < self.levelArray.count; i ++) {
-        [self.levelArray removeAllObjects];
-    }
-    NSUserDefaults *delete = [NSUserDefaults standardUserDefaults];
-    [delete removeObjectForKey:@"level"];
-    [delete synchronize];
-    [self.myTableView reloadData];
-    NSLog(@"add,test");
+    
+//    NSLog(@"clear被按下。");
+//    for (int i; i < self.levelArray.count; i ++) {
+//        [self.levelArray removeAllObjects];
+//    }
+//    
+//    NSUserDefaults *delete = [NSUserDefaults standardUserDefaults];
+//    [delete removeObjectForKey:@"level"];
+//    [delete synchronize];
+//    [self.myTableView reloadData];
+    
 }
 
-//Fir 3 Apr
-//这个是分支Ray更改的代码
+
 
 @end

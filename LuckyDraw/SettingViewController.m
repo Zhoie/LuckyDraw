@@ -27,6 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+//    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+////    
+////    myDelegate.processArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"processArray"];
+////    myDelegate.prizeInfoArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"prizeInfoArray"];
+////    myDelegate.strCell = [[NSUserDefaults standardUserDefaults] objectForKey:@"strCell"];
+    
 }
 
 
@@ -53,20 +61,18 @@
 
 - (IBAction)saveButtonAction:(id)sender {
     
-    NSLog(@"\n AwardName:%@\n PrizeName:%@\n numOfPrize:%@\n",awardTextField.text,prizeTextField.text,numOfPrizeTextField.text);
-    
-    
+   // NSLog(@"\n AwardName:%@\n PrizeName:%@\n numOfPrize:%@\n",awardTextField.text,prizeTextField.text,numOfPrizeTextField.text);
     NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
     
-    NSDictionary *processDelDicts = [[NSDictionary alloc]init];
-    NSDictionary *prizeInfoDelDicts = [[NSDictionary alloc]init];
+  //  NSDictionary *processDelDicts = [[NSDictionary alloc]init];
+   // NSDictionary *prizeInfoDelDicts = [[NSDictionary alloc]init];
     
     
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
 
-    NSString *strCell = myDelegate.strCell;
+    //NSString *strCell = myDelegate.strCell;
     
     
 //    if ( [myDelegate.processArray count] ) {
@@ -97,22 +103,22 @@
     
     NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
     
-    NSMutableArray *initLevelArray = [[NSMutableArray alloc]init];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"level"] == nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:initLevelArray forKey:@"level"];
-    }
-    NSArray *tempLevelArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
-    NSMutableArray *mutalLevelArray = [tempLevelArray mutableCopy];
-    NSString *textString = [NSString stringWithFormat:@"奖项：%@  奖品：%@  奖品个数：%@",awardTextField.text,prizeTextField.text, numOfPrizeTextField.text];
-
-    [mutalLevelArray insertObject:textString atIndex:0];
-    ViewController *viewCtrl = [[ViewController alloc] init];
-    viewCtrl.levelArray = mutalLevelArray;
-    [[NSUserDefaults standardUserDefaults] setObject:mutalLevelArray forKey:@"level"];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"数据添加成功！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    
-    [alert show];
+//    NSMutableArray *initLevelArray = [[NSMutableArray alloc]init];
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"level"] == nil) {
+//        [[NSUserDefaults standardUserDefaults] setObject:initLevelArray forKey:@"level"];
+//    }
+//    NSArray *tempLevelArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
+//    NSMutableArray *mutalLevelArray = [tempLevelArray mutableCopy];
+//    NSString *textString = [NSString stringWithFormat:@"奖项：%@  奖品：%@  奖品个数：%@",awardTextField.text,prizeTextField.text, numOfPrizeTextField.text];
+//
+//    [mutalLevelArray insertObject:textString atIndex:0];
+//    ViewController *viewCtrl = [[ViewController alloc] init];
+//    viewCtrl.levelArray = mutalLevelArray;
+//    [[NSUserDefaults standardUserDefaults] setObject:mutalLevelArray forKey:@"level"];
+//    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"数据添加成功！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    
+//    [alert show];
 
 
 }
