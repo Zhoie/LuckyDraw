@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <POP/POP.h>
+
 
 @interface SettingViewController : UIViewController
 
@@ -19,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *awardTextField;
 @property (weak, nonatomic) IBOutlet UITextField *prizeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *numOfPrizeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *saveButtonAmination;
+
 
 
 
@@ -29,6 +33,12 @@
 - (IBAction)backgroundTap:(id)sender;
 
 - (IBAction)saveButtonAction:(id)sender;
+- (IBAction)springTouchBtnTouchDown:(id)sender;
+
+- (IBAction)springTouchBtnTouchUp:(id)sender;
+
+
+- (void)initSpringTouch;
 
 
 @end

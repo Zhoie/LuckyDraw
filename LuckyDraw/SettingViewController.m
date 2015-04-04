@@ -10,6 +10,9 @@
 #import "SettingViewController.h"
 #import "ViewController.h"
 
+
+
+
 //static int objCount = 0;
 
 @interface SettingViewController ()
@@ -60,6 +63,31 @@
 }
 
 - (IBAction)saveButtonAction:(id)sender {
+    
+    
+    //Function von der Action
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
+    
+    [self.saveButtonAmination.layer pop_addAnimation:anim forKey:@"saveButton"];
+    
+    //[self.yourView.layer pop_addAnimation:anim forKey:@"typeANameForYourAnimationHere"];
+    anim = [_saveButtonAmination.layer pop_animationForKey:@"saveButton"];
+    if (anim) {
+        /* update to value to new destination */
+        velocity : anim.velocity = @(1000.);
+        
+    } else {
+        /* create and start a new animation */
+    }
+    
+   // [self.saveButtonAmination.layer pop_addAnimation:anim forKey:@"typeANameForYourAnimationHere"];
+    
+    //[saveButtonAmination pop_removeAnimationForKey:@"saveButton"];
+    
+    
+    
+    
     
    // NSLog(@"\n AwardName:%@\n PrizeName:%@\n numOfPrize:%@\n",awardTextField.text,prizeTextField.text,numOfPrizeTextField.text);
     NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
@@ -120,7 +148,42 @@
 //    
 //    [alert show];
 
-
 }
+
+- (IBAction)springTouchBtnTouchDown:(id)sender {
+    
+    UIView *btn = (UIView *)sender;
+    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.9, 0.9)];
+    animation.springBounciness = 10;
+    [btn.layer pop_addAnimation:animation forKey:@"ZoomOutY"];
+}
+
+- (IBAction)springTouchBtnTouchUp:(id)sender {
+    
+    UIView *btn = (UIView *)sender;
+    
+    [btn.layer pop_removeAnimationForKey:@"ZoomOutY"];
+    
+    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+    animation.springBounciness = 10;
+    
+    [btn.layer pop_addAnimation:animation forKey:@"ZoomOutYReverse"];
+    
+}
+
+//- (void)initSpringTouch
+//{
+//    
+//    [self addTarget:self action:@selector(springTouchBtnTouchDown:) forControlEvents:UIControlEventTouchDown];
+//    [self addTarget:self action:@selector(springTouchBtnTouchUp:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
+//}
+//
+//- (void)removeSpringTouch
+//{
+//    [self removeTarget:self action:@selector(springTouchBtnTouchDown:) forControlEvents:UIControlEventTouchDown];
+//    [self removeTarget:self action:@selector(springTouchBtnTouchUp:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
 
 @end
