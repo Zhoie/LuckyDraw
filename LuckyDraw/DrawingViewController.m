@@ -36,7 +36,7 @@
         strWinnner = [NSString stringWithFormat:@"%d", i + 1];
         [myDelegate.winnerNumArray addObject:strWinnner];
     }
-    
+    //hehe
 
     NSLog(@"中奖号码%@", myDelegate.winnerNumArray );
     // Do any additional setup after loading the view.
