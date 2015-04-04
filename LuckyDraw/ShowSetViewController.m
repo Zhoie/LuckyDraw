@@ -2,7 +2,7 @@
 //  ShowSetViewController.m
 //  LuckyDraw
 //
-//  Created by ray on 15/4/1.
+//  Created by Niklas on 15/4/1.
 //  Copyright (c) 2015年 iTeam. All rights reserved.
 //
 

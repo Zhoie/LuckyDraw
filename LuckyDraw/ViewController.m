@@ -2,7 +2,7 @@
 //  ViewController.m
 //  LuckyDraw
 //
-//  Created by ray on 15/3/25.
+//  Created by Niklas on 15/3/25.
 //  Copyright (c) 2015年 iTeam. All rights reserved.
 //
 
@@ -98,7 +98,6 @@
         
         NSString *delPrize = [[NSString alloc]init];
         
-        
         processDelDicts = [myDelegate.prizeInfoArray objectAtIndex:indexPath.row];
         NSLog(@"processDelDicts%@", processDelDicts);
         delPrize = [processDelDicts objectForKey:@"prize"];
@@ -106,7 +105,6 @@
         
         //算出成员数
         unsigned long numObjProcessArray = [myDelegate.processArray count];
-        
         
         //#function 删除prize信息，删除奖池信息 3.4.2015
         NSLog(@"processArray 有 %ld 个成员",numObjProcessArray);
