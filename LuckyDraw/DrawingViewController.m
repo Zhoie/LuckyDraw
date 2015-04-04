@@ -22,20 +22,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    //myDelegate.exeProcessArray = myDelegate.processArray;
+    
+    NSLog(@"有%ld 个人抽奖", [myDelegate.exeProcessArray count] );
+    NSString *strWinnner = [[NSString alloc]init];
+    
+    for (int i = 0 ; i < [myDelegate.exeProcessArray count] ; i++) {
+        strWinnner = [NSString stringWithFormat:@"%d", i + 1];
+        [myDelegate.winnerNumArray addObject:strWinnner];
+    }
+    
+
+    NSLog(@"中奖号码%@", myDelegate.winnerNumArray );
     // Do any additional setup after loading the view.
 }
 
 
 - (IBAction)DrawingButtonAction:(id)sender {
     
-    if (!self.cellDataArray) {
-        self.cellDataArray = [[NSMutableArray alloc] init];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    if ( [myDelegate.winnerNumArray count] != 0) {
+        if (!self.cellDataArray) {
+            self.cellDataArray = [[NSMutableArray alloc] init];
+        }
+        [self.cellDataArray insertObject:[NSDate date] atIndex:0];
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        
+        [self.drawTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    [self.cellDataArray insertObject:[NSDate date] atIndex:0];
     
-     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    [self.drawTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -57,25 +77,43 @@
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
-    NSMutableArray *testArray = [[NSMutableArray alloc] initWithArray:myDelegate.processArray];
+    NSMutableArray *testArray = [[NSMutableArray alloc] initWithArray:myDelegate.exeProcessArray];
     NSDictionary *testDicts = [[NSDictionary alloc] init];
     
     int numDraw;
     
-    if ( [myDelegate.processArray count] != 0 ) {
+    if ( [myDelegate.exeProcessArray count] != 0 ) {
         
-        numDraw = (arc4random() % [myDelegate.processArray count]);
-        NSLog(@"you prize is %@", myDelegate.processArray[numDraw]);
-        [myDelegate.processArray removeObjectAtIndex:numDraw];
+        numDraw = (arc4random() % [myDelegate.exeProcessArray count]);
+        NSLog(@"随机数%d" , numDraw);
+        
+        NSLog(@"you prize is %@", myDelegate.exeProcessArray[numDraw]);
+        testDicts = [testArray objectAtIndex:numDraw];
+        
+        self.numOfPrize = [myDelegate.winnerNumArray objectAtIndex:numDraw];
+        NSLog(@"取出了%@ 号", myDelegate.winnerNumArray);
+        NSLog(@"剩下号码%@ ", myDelegate.winnerNumArray);
+        
+        self.levelName = [testDicts objectForKey:@"level"];
+        self.prizeName = [testDicts objectForKey:@"prize"];
+        NSString *testStr = [NSString stringWithFormat:@"号码:%@ level:%@  prize:%@",self.numOfPrize,self.levelName, self.prizeName];
+        cell.textLabel.text = testStr;
+        
+        // [myDelegate.winnerNumArray removeObjectAtIndex:numDraw];
+        [myDelegate.winnerNumArray removeObjectAtIndex:numDraw];
+        [myDelegate.exeProcessArray removeObjectAtIndex:numDraw];
+
     }
     
-    testDicts = [testArray objectAtIndex:numDraw];
-    self.levelName = [testDicts objectForKey:@"level"];
-    self.prizeName = [testDicts objectForKey:@"prize"];
     
-    NSString *testStr = [NSString stringWithFormat:@"level:%@  prize:%@", self.levelName, self.prizeName];
     
-    cell.textLabel.text = testStr;
+//    testDicts = [testArray objectAtIndex:numDraw];
+//    self.levelName = [testDicts objectForKey:@"level"];
+//    self.prizeName = [testDicts objectForKey:@"prize"];
+//    
+//    NSString *testStr = [NSString stringWithFormat:@"level:%@  prize:%@", self.levelName, self.prizeName];
+//    
+//    cell.textLabel.text = testStr;
     
     return cell;
 }

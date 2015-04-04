@@ -23,12 +23,26 @@
     return _processArray;
 }
 
+- (NSMutableArray *)exeProcessArray{
+    if ( !_exeProcessArray ) {
+        _exeProcessArray = [[NSMutableArray alloc]init];
+    }
+    return _exeProcessArray;
+}
+
 
 - (NSMutableArray *)prizeInfoArray{
     if ( !_prizeInfoArray) {
         _prizeInfoArray = [[NSMutableArray alloc]init];
     }
     return _prizeInfoArray;
+}
+
+- (NSMutableArray *)winnerNumArray{
+    if ( !_winnerNumArray) {
+        _winnerNumArray = [[NSMutableArray alloc]init];
+    }
+    return _winnerNumArray;
 }
 
 

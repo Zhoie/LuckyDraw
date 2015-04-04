@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-@synthesize addBarButton,levelArray;
+@synthesize addBarButton;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -45,8 +45,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return [self.levelArray count];
+     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    return [myDelegate.prizeInfoArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,8 +55,14 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myIdentifier];
     
-    NSString *prizeInfoStr = [[NSString alloc] init];
-    prizeInfoStr = [self.levelArray objectAtIndex:indexPath.row];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSDictionary *prizeInfo = [[NSDictionary alloc] init];
+    prizeInfo = [myDelegate.prizeInfoArray objectAtIndex:indexPath.row];
+    NSString *level = [prizeInfo objectForKey:@"level"];
+    NSString *prize = [prizeInfo objectForKey:@"prize"];
+    NSString *num = [prizeInfo objectForKey:@"num"];
+    NSString *prizeInfoStr = [NSString stringWithFormat:@"奖项：%@ 奖品：%@ 奖品个数：%@", level, prize, num];
     
     cell.textLabel.text = prizeInfoStr;
 
@@ -76,21 +82,64 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
-    
-    //  NSDictionary *processDelDicts = [[NSDictionary alloc]init];
-    // NSDictionary *prizeInfoDelDicts = [[NSDictionary alloc]init];
-
     
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        //[self.levelArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        
+        //NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
+       // NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
+        
+        NSMutableDictionary *processDelDicts = [[NSMutableDictionary alloc]init];
+       // NSArray *processDelArray = [[NSArray alloc]init];
+        
+        
+        NSString *delPrize = [[NSString alloc]init];
+        
+        
+        processDelDicts = [myDelegate.prizeInfoArray objectAtIndex:indexPath.row];
+        NSLog(@"processDelDicts%@", processDelDicts);
+        delPrize = [processDelDicts objectForKey:@"prize"];
+        NSLog(@"被删掉的是%@ 奖。",delPrize);
+        
+        //算出成员数
+        unsigned long numObjProcessArray = [myDelegate.processArray count];
+        
+        
+        //#function 删除prize信息，删除奖池信息 3.4.2015
+        NSLog(@"processArray 有 %ld 个成员",numObjProcessArray);
+        
+        for (int i = 0; i < numObjProcessArray ; i++) {
+            
+            for (int j = 0; j < [myDelegate.processArray count] ; j++ ) {
+                
+                processDelDicts = [myDelegate.processArray objectAtIndex:j];
+                NSLog(@"从process中抽出奖项名字：%@",[processDelDicts objectForKey:@"prize"]);
+                
+                if ( [[processDelDicts objectForKey:@"prize"]isEqualToString:delPrize] ) {
+                    NSLog(@"匹配成功！");
+                    [myDelegate.processArray removeObjectAtIndex:j];
+                    NSLog(@"还需要再比对%ld次", numObjProcessArray);
+                    
+                }
+            }
+        }
+        NSLog(@"去除该奖励后，奖池信息:%@", myDelegate.processArray);
+        
+        
+        
+        [myDelegate.prizeInfoArray removeObjectAtIndex:indexPath.row];
+        NSLog(@"删除后prizeInforArray信息：%@ ", myDelegate.prizeInfoArray);
         NSLog(@"第%ld被删除", indexPath.row);
+        
+
+        
+        
+        
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

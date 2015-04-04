@@ -64,6 +64,9 @@
     NSLog(@"知道参加人数后的抽奖池:%lu", [myDelegate.processArray count]);
     NSLog(@"抽奖池:%@", myDelegate.processArray);
     
+    //myDelegate.exeProcessArray = myDelegate.processArray;
+    myDelegate.exeProcessArray = [myDelegate.processArray mutableCopy];
+    
     
 }
 

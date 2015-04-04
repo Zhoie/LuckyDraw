@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSString *numOfPrize;//奖品个数
 @property (nonatomic, strong) NSMutableArray *cellDataArray;
 
-@property (nonatomic, strong) NSMutableArray *levelArray;
+//@property (nonatomic, strong) NSMutableArray *levelArray;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBarButton;
 

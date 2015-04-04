@@ -37,7 +37,10 @@ static unsigned long numCell;//Cell在数组中的正确位置
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     NSDictionary *editInfoDicts = [[NSDictionary alloc]init];
     
-    numCell = [myDelegate.prizeInfoArray count] - [myDelegate.strCell intValue] - 1;
+    //反序
+    //numCell = [myDelegate.prizeInfoArray count] - [myDelegate.strCell intValue] - 1;
+    
+    numCell = [myDelegate.strCell intValue];
     
     NSLog(@"第%@个cell在数组中是%ld：", myDelegate.strCell, numCell);
 
@@ -81,18 +84,66 @@ static unsigned long numCell;//Cell在数组中的正确位置
 
 - (IBAction)saveBtnAction:(id)sender {
     
-//    NSArray *tempArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"level"];
-//    NSMutableArray *mutableArray = [tempArray mutableCopy];
-//    NSString *textstring = [NSString stringWithFormat:@"奖项：%@  奖品：%@  奖品个数：%@",self.levelTextField.text,self.prizeTextField.text, self.numTextField.text];
-//    ViewController *viewctrl = [[ViewController alloc]init];
-//    [mutableArray removeObjectAtIndex:self.index];
-//    [mutableArray insertObject:textstring atIndex:0];
-//    [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"level"];
-//    viewctrl.levelArray = mutableArray;
-//    
-////    [self.levelTextField resignFirstResponder];
-//    UIAlertView *SaveBtnAlert = [[UIAlertView alloc] initWithTitle:nil message:@"修改数据成功" delegate:nil cancelButtonTitle:@"朕知道了" otherButtonTitles:nil, nil];
-//    [SaveBtnAlert show];
+    
+    //function 去除旧数据
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSMutableDictionary *processDelDicts = [[NSMutableDictionary alloc]init];
+    NSString *delPrize = [[NSString alloc]init];
+    unsigned int numCell = [myDelegate.strCell intValue];
+    processDelDicts = [myDelegate.prizeInfoArray objectAtIndex:numCell];
+    NSLog(@"processDelDicts%@", processDelDicts);
+    delPrize = [processDelDicts objectForKey:@"prize"];
+    NSLog(@"被删掉的是%@ 奖。",delPrize);
+    //算出成员数
+    unsigned long numObjProcessArray = [myDelegate.processArray count];
+    
+    
+    //#function 删除prize信息，删除奖池信息 3.4.2015
+    NSLog(@"processArray 有 %ld 个成员",numObjProcessArray);
+    
+    for (int i = 0; i < numObjProcessArray ; i++) {
+        
+        for (int j = 0; j < [myDelegate.processArray count] ; j++ ) {
+            
+            processDelDicts = [myDelegate.processArray objectAtIndex:j];
+            NSLog(@"从process中抽出奖项名字：%@",[processDelDicts objectForKey:@"prize"]);
+            
+            if ( [[processDelDicts objectForKey:@"prize"]isEqualToString:delPrize] ) {
+                NSLog(@"匹配成功！");
+                [myDelegate.processArray removeObjectAtIndex:j];
+                NSLog(@"还需要再比对%ld次", numObjProcessArray);
+            }
+        }
+    }
+    NSLog(@"去除该奖励后，奖池信息:%@", myDelegate.processArray);
+    [myDelegate.prizeInfoArray removeObjectAtIndex:numCell];
+    NSLog(@"删除后prizeInforArray信息：%@ ", myDelegate.prizeInfoArray);
+    NSLog(@"第%d被删除", numCell);
+    
+    //function 从textFiled重新读入
+    NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
+    
+    int num = [numTextField.text intValue];
+    for (int i = 0 ; i< num; i++ ) {
+        //Process 的数据
+        [processDicts setValue:levelTextField.text forKey:@"level"];
+        [processDicts setValue:prizeTextField.text forKey:@"prize"];
+        [myDelegate.processArray addObject:processDicts];
+    }
+    NSLog(@"processArray%@", myDelegate.processArray);
+    
+    
+    //prize information
+    [prizeInfoDicts setValue:levelTextField.text forKey:@"level"];
+    [prizeInfoDicts setValue:prizeTextField.text forKey:@"prize"];
+    [prizeInfoDicts setValue:numTextField.text forKey:@"num"];
+    [myDelegate.prizeInfoArray insertObject:prizeInfoDicts atIndex:[myDelegate.prizeInfoArray count]];
+    
+    NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
+
+
+    
 }
 
 
