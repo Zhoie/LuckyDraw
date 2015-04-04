@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D005C14B-DDC5-418D-B698-2B7564711A35</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LuckyDraw</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3E99A4383F7FDEFAC63CA04FD1D90EF725F6F7AD</key>
+		<string>https://github.com/Zhoie/LuckyDraw.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LuckyDraw.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3E99A4383F7FDEFAC63CA04FD1D90EF725F6F7AD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Zhoie/LuckyDraw.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3E99A4383F7FDEFAC63CA04FD1D90EF725F6F7AD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3E99A4383F7FDEFAC63CA04FD1D90EF725F6F7AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LuckyDraw</string>
+		</dict>
+	</array>
+</dict>
+</plist>
