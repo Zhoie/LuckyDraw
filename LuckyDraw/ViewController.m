@@ -126,16 +126,9 @@
         }
         NSLog(@"去除该奖励后，奖池信息:%@", myDelegate.processArray);
         
-        
-        
         [myDelegate.prizeInfoArray removeObjectAtIndex:indexPath.row];
         NSLog(@"删除后prizeInforArray信息：%@ ", myDelegate.prizeInfoArray);
         NSLog(@"第%ld被删除", indexPath.row);
-        
-
-        
-        
-        
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
@@ -187,16 +180,12 @@
 //删除键clear－－清空数组，并删除保存在本地的数据
 - (IBAction)clearBtnAciton:(id)sender {
     
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [myDelegate.processArray removeAllObjects];
+    [myDelegate.prizeInfoArray removeAllObjects];
     
-//    NSLog(@"clear被按下。");
-//    for (int i; i < self.levelArray.count; i ++) {
-//        [self.levelArray removeAllObjects];
-//    }
-//    
-//    NSUserDefaults *delete = [NSUserDefaults standardUserDefaults];
-//    [delete removeObjectForKey:@"level"];
-//    [delete synchronize];
-//    [self.myTableView reloadData];
+    [self.myTableView reloadData];
+    
     
 }
 
