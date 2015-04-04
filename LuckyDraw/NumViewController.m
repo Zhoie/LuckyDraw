@@ -53,7 +53,7 @@
         for (int i = 0; i < numNone ; i++ ) {
             
             [infoDicts setValue:@"没中奖" forKey:@"level"];
-            [infoDicts setValue:@"都说没中奖咯" forKey:@"prize"];
+            [infoDicts setValue:@"没奖品" forKey:@"prize"];
             [myDelegate.processArray addObject:infoDicts];
         }
     } else {
