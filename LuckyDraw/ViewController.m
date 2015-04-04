@@ -98,10 +98,9 @@
         
         NSString *delPrize = [[NSString alloc]init];
         
-<<<<<<< Updated upstream
-=======
+
         
->>>>>>> Stashed changes
+
         processDelDicts = [myDelegate.prizeInfoArray objectAtIndex:indexPath.row];
         NSLog(@"processDelDicts%@", processDelDicts);
         delPrize = [processDelDicts objectForKey:@"prize"];
@@ -110,10 +109,8 @@
         //算出成员数
         unsigned long numObjProcessArray = [myDelegate.processArray count];
         
-<<<<<<< Updated upstream
-=======
-        
->>>>>>> Stashed changes
+
+    
         //#function 删除prize信息，删除奖池信息 3.4.2015
         NSLog(@"processArray 有 %ld 个成员",numObjProcessArray);
         
@@ -134,23 +131,14 @@
         }
         NSLog(@"去除该奖励后，奖池信息:%@", myDelegate.processArray);
         
-<<<<<<< Updated upstream
-=======
+
         
         
->>>>>>> Stashed changes
+
         [myDelegate.prizeInfoArray removeObjectAtIndex:indexPath.row];
         NSLog(@"删除后prizeInforArray信息：%@ ", myDelegate.prizeInfoArray);
         NSLog(@"第%ld被删除", indexPath.row);
         
-<<<<<<< Updated upstream
-=======
-
-        
-        
-        
-        
->>>>>>> Stashed changes
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         

@@ -9,10 +9,12 @@
 
 #import "AppDelegate.h"
 #import "DrawingViewController.h"
+#import <POP/POP.h>
 
 @interface DrawingViewController ()
 
 @property NSMutableArray *cellDataArray;
+@property (weak, nonatomic) IBOutlet UIButton *DrawBtn;
 
 @end
 
@@ -42,6 +44,14 @@
 
 
 - (IBAction)DrawingButtonAction:(id)sender {
+    
+    POPSpringAnimation *positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+    positionAnimation.velocity = @2000;
+    positionAnimation.springBounciness = 20;
+    [positionAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+        self.DrawBtn.userInteractionEnabled = YES;
+    }];
+    [self.DrawBtn.layer pop_addAnimation:positionAnimation forKey:@"positionAnimation"];
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
