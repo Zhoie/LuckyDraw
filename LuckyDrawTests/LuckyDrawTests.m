@@ -2,7 +2,7 @@
 //  LuckyDrawTests.m
 //  LuckyDrawTests
 //
-//  Created by ray on 15/3/25.
+//  Created by Ray and Niklas on 15/3/25.
 //  Copyright (c) 2015年 iTeam. All rights reserved.
 //
 
