@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CA865466BBA06521D1A993F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF798187BBE6B33AFE21EC8 /* libPods.a */; };
+		715850F11AD2722D00C8B1BB /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715850F01AD2722D00C8B1BB /* ModalViewController.m */; };
+		715850F41AD2780100C8B1BB /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 715850F31AD2780100C8B1BB /* PresentingAnimator.m */; };
+		715850F71AD2782200C8B1BB /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 715850F61AD2782200C8B1BB /* DismissingAnimator.m */; };
 		71D4F52B1ACAFFE900F3048A /* ShowSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F52A1ACAFFE900F3048A /* ShowSetViewController.m */; };
 		71DBC37C1AC27BB600688B48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DBC37B1AC27BB600688B48 /* main.m */; };
 		71DBC37F1AC27BB600688B48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DBC37E1AC27BB600688B48 /* AppDelegate.m */; };
@@ -34,6 +37,12 @@
 /* Begin PBXFileReference section */
 		1A3177450AB238EDD18FB867 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5DF798187BBE6B33AFE21EC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		715850EF1AD2722D00C8B1BB /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		715850F01AD2722D00C8B1BB /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		715850F21AD2780100C8B1BB /* PresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingAnimator.h; sourceTree = "<group>"; };
+		715850F31AD2780100C8B1BB /* PresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingAnimator.m; sourceTree = "<group>"; };
+		715850F51AD2782200C8B1BB /* DismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissingAnimator.h; sourceTree = "<group>"; };
+		715850F61AD2782200C8B1BB /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
 		71D4F5291ACAFFE800F3048A /* ShowSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowSetViewController.h; sourceTree = "<group>"; };
 		71D4F52A1ACAFFE900F3048A /* ShowSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowSetViewController.m; sourceTree = "<group>"; };
 		71DBC3761AC27BB500688B48 /* LuckyDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckyDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +119,12 @@
 				71DBC3A31AC2812D00688B48 /* NumViewController.m */,
 				71DBC3A51AC2814600688B48 /* DrawingViewController.h */,
 				71DBC3A61AC2814600688B48 /* DrawingViewController.m */,
+				715850EF1AD2722D00C8B1BB /* ModalViewController.h */,
+				715850F01AD2722D00C8B1BB /* ModalViewController.m */,
+				715850F21AD2780100C8B1BB /* PresentingAnimator.h */,
+				715850F31AD2780100C8B1BB /* PresentingAnimator.m */,
+				715850F51AD2782200C8B1BB /* DismissingAnimator.h */,
+				715850F61AD2782200C8B1BB /* DismissingAnimator.m */,
 				71DBC3831AC27BB600688B48 /* Main.storyboard */,
 				71DBC3791AC27BB600688B48 /* Supporting Files */,
 			);
@@ -302,8 +317,11 @@
 				71DBC37F1AC27BB600688B48 /* AppDelegate.m in Sources */,
 				71DBC37C1AC27BB600688B48 /* main.m in Sources */,
 				71DBC3A41AC2812D00688B48 /* NumViewController.m in Sources */,
+				715850F11AD2722D00C8B1BB /* ModalViewController.m in Sources */,
 				71D4F52B1ACAFFE900F3048A /* ShowSetViewController.m in Sources */,
 				71DBC3A11AC2811000688B48 /* SettingViewController.m in Sources */,
+				715850F41AD2780100C8B1BB /* PresentingAnimator.m in Sources */,
+				715850F71AD2782200C8B1BB /* DismissingAnimator.m in Sources */,
 				71DBC3A71AC2814600688B48 /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
