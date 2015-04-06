@@ -52,8 +52,8 @@
     if ( numPlayer > 0 ) {
         for (int i = 0; i < numNone ; i++ ) {
             
-            [infoDicts setValue:@"none" forKey:@"level"];
-            [infoDicts setValue:@"none" forKey:@"prize"];
+            [infoDicts setValue:@"没中奖" forKey:@"level"];
+            [infoDicts setValue:@"没奖品" forKey:@"prize"];
             [myDelegate.processArray addObject:infoDicts];
         }
     } else {

@@ -10,11 +10,15 @@
 #import "AppDelegate.h"
 #import "DrawingViewController.h"
 #import <POP/POP.h>
+#import "ModalViewController.h"
+#import "PresentingAnimator.h"
+#import "DismissingAnimator.h"
 
-@interface DrawingViewController ()
+@interface DrawingViewController ()<UIViewControllerTransitioningDelegate>
 
 @property NSMutableArray *cellDataArray;
 @property (weak, nonatomic) IBOutlet UIButton *DrawBtn;
+@property (readwrite, assign) BOOL timerRunning;
 
 @end
 
@@ -37,21 +41,64 @@
         [myDelegate.winnerNumArray addObject:strWinnner];
     }
     
+    self.drawTableView.tableFooterView = [[UIView alloc] init];
+    
 
     NSLog(@"中奖号码%@", myDelegate.winnerNumArray );
-    // Do any additional setup after loading the view.
+    
+    _timerRunning = NO;
 }
+
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [PresentingAnimator new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [DismissingAnimator new];
+}
+
+
+
+
 
 
 - (IBAction)DrawingButtonAction:(id)sender {
     
-    POPSpringAnimation *positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-    positionAnimation.velocity = @2000;
-    positionAnimation.springBounciness = 20;
-    [positionAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
-        self.DrawBtn.userInteractionEnabled = YES;
-    }];
-    [self.DrawBtn.layer pop_addAnimation:positionAnimation forKey:@"positionAnimation"];
+//    POPSpringAnimation *positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+//    positionAnimation.velocity = @2000;
+//    positionAnimation.springBounciness = 20;
+//    [positionAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+//        self.DrawBtn.userInteractionEnabled = YES;
+//    }];
+//    [self.DrawBtn.layer pop_addAnimation:positionAnimation forKey:@"positionAnimation"];
+    
+    /*>>>>>>>>>>>>>给抽奖按钮添加动画效果<<<<<<<<<<<<<<*/
+    _timerRunning = !_timerRunning;
+    POPSpringAnimation *buttonAnimation = [POPSpringAnimation animation];
+    buttonAnimation.property = [POPAnimatableProperty propertyWithName:kPOPLayerSize];
+    if (_timerRunning) {
+        buttonAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(120, 30)];
+    }else{
+        buttonAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(140, 40)];
+    }
+    
+    buttonAnimation.springBounciness = 10.0;
+    buttonAnimation.springSpeed = 10.0;
+    
+    [self.DrawBtn.layer pop_addAnimation:buttonAnimation forKey:@"DrawBtnAnimation"];
+    
+    /*>>>>>>>>>>>>按下按钮弹出另一个view,用于显示中奖祝贺信息<<<<<<<<<<<<<<*/
+    ModalViewController *modalViewCtrl = [ModalViewController new];
+    modalViewCtrl.transitioningDelegate = self;
+    modalViewCtrl.modalPresentationStyle = UIModalPresentationCustom;
+    [self.navigationController presentViewController:modalViewCtrl animated:YES completion:NULL];
+    
+    
     
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -95,14 +142,14 @@
     if ( [myDelegate.exeProcessArray count] != 0 ) {
         
         numDraw = (arc4random() % [myDelegate.exeProcessArray count]);
-        NSLog(@"随机数%d" , numDraw);
-        
-        NSLog(@"you prize is %@", myDelegate.exeProcessArray[numDraw]);
+//        NSLog(@"随机数%d" , numDraw);
+//        
+//        NSLog(@"you prize is %@", myDelegate.exeProcessArray[numDraw]);
         testDicts = [testArray objectAtIndex:numDraw];
         
         self.numOfPrize = [myDelegate.winnerNumArray objectAtIndex:numDraw];
-        NSLog(@"取出了%@ 号", myDelegate.winnerNumArray);
-        NSLog(@"剩下号码%@ ", myDelegate.winnerNumArray);
+//        NSLog(@"取出了%@ 号", myDelegate.winnerNumArray);
+//        NSLog(@"剩下号码%@ ", myDelegate.winnerNumArray);
         
         self.levelName = [testDicts objectForKey:@"level"];
         self.prizeName = [testDicts objectForKey:@"prize"];
@@ -114,16 +161,6 @@
         [myDelegate.exeProcessArray removeObjectAtIndex:numDraw];
 
     }
-    
-    
-    
-//    testDicts = [testArray objectAtIndex:numDraw];
-//    self.levelName = [testDicts objectForKey:@"level"];
-//    self.prizeName = [testDicts objectForKey:@"prize"];
-//    
-//    NSString *testStr = [NSString stringWithFormat:@"level:%@  prize:%@", self.levelName, self.prizeName];
-//    
-//    cell.textLabel.text = testStr;
     
     return cell;
 }
